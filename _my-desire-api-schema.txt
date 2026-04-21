@@ -1,0 +1,42 @@
+{
+    "id": 6,
+    "name": "Charizard",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+
+    // 1. ฝึกดึงข้อมูลจาก Array ของ String (ใช้ .map() ง่ายๆ)
+    "types": ["Fire", "Flying"],
+
+    // 2. ฝึกเข้าถึง Nested Object (เข้าถึงผ่าน .info.height หรือ .info.weight)
+    "info": {
+        "height": 1.7,
+        "weight": 90.5,
+        "habitat": "Mountain"
+    },
+
+    // 3. ฝึกเข้าถึง Array ของ Object (ใช้ .find() เพื่อหาค่าที่ต้องการ หรือ .map() มาโชว์ทั้งหมด)
+    "base_stats": [
+        { "label": "HP", "value": 78 },
+        { "label": "Attack", "value": 84 },
+        { "label": "Defense", "value": 78 },
+        { "label": "Speed", "value": 100 }
+    ],
+
+    // 4. ฝึกใช้ Logic เช็กค่า Boolean (เช่น ถ้าเป็น true ให้ขึ้นไอคอนดาว)
+    "is_legendary": false,
+
+    // 5. ฝึกการเข้าถึงข้อมูลที่ซับซ้อนขึ้น (Array ซ้อนใน Object)
+    "evolution": {
+        "current_stage": 3,
+        "chain": ["Charmander", "Charmeleon", "Charizard"]
+    }
+}
+
+// properties ที่ fetch ไปเล่นต่อได้
+id
+name
+image
+types []
+info {}
+base_stats [{}]
+is_legendary bool
+evolution {current_stage, chain[]} // *เอาไว้ก่อน

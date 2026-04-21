@@ -1,0 +1,26 @@
+{
+    "name": "pokemon-simple",
+    "version": "1.0.0",
+    "description": "**Work in Progress**",
+    "main": "controller.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/weerayosong/pokemon-simple.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "bugs": {
+        "url": "https://github.com/weerayosong/pokemon-simple/issues"
+    },
+    "homepage": "https://github.com/weerayosong/pokemon-simple#readme",
+    "dependencies": {
+        "dotenv": "^17.4.2",
+        "express": "^5.2.1"
+    }
+}
