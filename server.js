@@ -1,8 +1,8 @@
 import express from 'express';
+import cors from 'cors';
 import 'dotenv/config';
 
 const app = express();
-const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 
 app.use(
@@ -68,8 +68,9 @@ app.get('/api/pokemon/:nameOrId', (req, res) => {
         });
 });
 
-app.listen(PORT, () => {
-    console.log(
-        `test: Server run at ${process.env.BASE_URL || 'http://localhost:' + PORT}`,
-    );
-});
+// app.listen(PORT, () => {
+//     console.log(
+//         `test: Server run at ${process.env.BASE_URL || 'http://localhost:' + PORT}`,
+//     );
+// });
+export default app;
