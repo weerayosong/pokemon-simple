@@ -1,8 +1,17 @@
 import express from 'express';
+const cors = require('cors');
 import 'dotenv/config';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(
+    cors({
+        origin: '*',
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
+    }),
+);
 
 // Route 1: Landing page
 app.get('/', (req, res) => {
