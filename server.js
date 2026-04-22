@@ -68,6 +68,40 @@ app.get('/api/pokemon/:nameOrId', (req, res) => {
         });
 });
 
+// Route 3: Fetch List of Pokemon (รองรับ /api/pokemon?limit=151)
+app.get('/api/pokemon', async (req, res) => {
+    // 1. รับค่า limit จาก URL (ถ้าไม่ได้ส่งมา ให้ค่าเริ่มต้นเป็น 151)
+    const limit = req.query.limit || 151;
+
+    try {
+        // 2. ไปดึงข้อมูลจาก PokeAPI แบบระบุจำนวน
+        const response = await fetch(
+            `https://pokeapi.co/api/v2/pokemon?limit=${limit}`,
+        );
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch from PokeAPI');
+        }
+
+        const data = await response.json();
+
+        // 3. จัด Format ข้อมูลใหม่ให้ React ใช้งานง่ายๆ (แนบ id กับ image ไปให้เลย)
+        const formattedData = data.results.map((pokemon, index) => {
+            const pokeId = index + 1; // ลำดับ 1-151
+            return {
+                id: pokeId,
+                name: pokemon.name,
+                image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeId}.png`,
+            };
+        });
+
+        // 4. ส่งข้อมูลกลับไปเป็น JSON
+        res.json(formattedData);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 // app.listen(PORT, () => {
 //     console.log(
 //         `test: Server run at ${process.env.BASE_URL || 'http://localhost:' + PORT}`,
